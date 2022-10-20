@@ -1,5 +1,5 @@
 ﻿namespace WebAPIMongo.Utils {
-    public class DataBaseSettings : IDataBaseSettings {
+    public class DatabaseSettings : IDatabaseSettings {
         public string ClientCollectionName { get; set; }
         public string AddressCollectionName { get; set; }
         public string ConnectionString { get ; set ; }

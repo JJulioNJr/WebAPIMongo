@@ -12,7 +12,7 @@ namespace WebAPIMongo.Services {
         private readonly IMongoCollection<Client> _clients;
         private readonly IMongoCollection<Address> _adress;
 
-        public ClientServices(IDataBaseSettings settings) {
+        public ClientServices(IDatabaseSettings settings) {
             var client = new MongoClient(settings.ConnectionString); 
             var database = client.GetDatabase(settings.DataBaseName);
             _clients = database.GetCollection<Client>(settings.ClientCollectionName);
@@ -30,8 +30,9 @@ namespace WebAPIMongo.Services {
             _clients.ReplaceOne(client => client.Id == id,clientIn);
         }
         public void Remove(Client clientIn) => _clients.DeleteOne(client => client.Id == clientIn.Id);
+        public List<Client> GetName(string name) => _clients.Find<Client>(client => client.Name == name).ToList();
+        public Client GetAddress(string id) => _clients.Find<Client>(client => client.Address.Id == id).FirstOrDefault();
 
-        
 
 
 
