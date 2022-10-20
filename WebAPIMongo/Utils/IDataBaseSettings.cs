@@ -1,5 +1,5 @@
 ﻿namespace WebAPIMongo.Utils {
-    public interface IDataBaseSettings {
+    public interface IDatabaseSettings {
 
         string ClientCollectionName { get; set; }
         string AddressCollectionName { get; set; }

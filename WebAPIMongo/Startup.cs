@@ -33,8 +33,8 @@ namespace WebAPIMongo {
 
             });
 
-            services.Configure<DataBaseSettings>(Configuration.GetSection(nameof(MongoDatabaseSettings)));
-            services.AddSingleton<IDataBaseSettings>(sp => sp.GetRequiredService<IOptions<DataBaseSettings>>().Value);
+            services.Configure<DatabaseSettings>(Configuration.GetSection(nameof(DatabaseSettings)));
+            services.AddSingleton<IDatabaseSettings>(sp => sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
             services.AddSingleton<ClientServices>();
             services.AddSingleton<AddressServices>();
 

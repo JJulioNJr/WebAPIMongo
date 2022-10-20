@@ -11,7 +11,7 @@ namespace WebAPIMongo.Services
 
         private readonly IMongoCollection<Address> _address;
 
-        public AddressServices(IDataBaseSettings settings)
+        public AddressServices(IDatabaseSettings settings)
         {
 
             var address = new MongoClient(settings.ConnectionString);
